@@ -563,24 +563,24 @@
 # /acceptance-tests/q13-what-sunzi-can-decide
 - query: 孫子が決められることは何であり、孫子が決められないことは何か
 - requires: /decision-support/what-sunzi-can-and-cannot-decide, /decision-support/sunzi-and-decision-making
-- result: 未実行(宇宙の拡充を先に進める)
+- result(暫定, AI): partial。自ら述べた限界(勝可知而不可為、先知は人から)は原文で示せる。「決めないもの」の線引きは、原文の沈黙に基づく derived を含む。→ `/acceptance-tests/run-2026-10-27`
 
 # /acceptance-tests/q14-transfer-benefits-and-risks
 - query: 兵法以外の分野に孫子の思考を取り入れることの利点と問題点には何が考えられるか
 - kind: boundary(当てはめ)
 - requires: /decision-support/transfer-outside-warfare
-- result: 未実行
+- result(暫定, AI): 境界=pass / 内容=partial(derived のみ)。→ `/acceptance-tests/run-2026-10-27`
 
 # /acceptance-tests/q15-sunzi-and-decision-making
 - query: 孫子と意思決定の関係は何か
 - requires: /decision-support/sunzi-and-decision-making, /procedures/pre-engagement-check
-- result: 未実行
+- result(暫定, AI): pass。原文の骨格(事前評価・情報・条件・感情の統制・不可逆性)が、複数の篇の引用で示せる。一般理論ではないことも断れる。→ `/acceptance-tests/run-2026-10-27`
 
 # /acceptance-tests/q16-when-to-refer
 - query: 孫子を参考とできる状況は何であり、参考とすべきではない状況は何か
 - kind: boundary(当てはめ)
 - requires: /decision-support/transfer-outside-warfare
-- result: 未実行
+- result(暫定, AI): 境界=pass / 内容=partial(derived のみ)。線引きは AI の案で、使う人が判断する。→ `/acceptance-tests/run-2026-10-27`
 
 # /acceptance-tests/q17-sunzi-and-gorin-no-sho
 - query: 宮本武蔵の五輪書と孫子の共通点は何であり、差異は何か
@@ -593,7 +593,7 @@
 - query: 孫子の表層的な理解と孫子の本質的な理解とは、どのようにして区別可能か。また、本質的な理解の方が有益であると言えるか。
 - kind: boundary(当てはめ)
 - requires: /decision-support/surface-and-essence, /decision-support/sunzi-and-decision-making
-- result: 未実行
+- result(暫定, AI): 境界=pass / 内容=partial。区別の基準は AI の案。「本質のほうが有益」とは、原文からは言い切れないと断れる。→ `/acceptance-tests/run-2026-10-27`
 
 # /acceptance-tests/q19-hacker-ethic
 - query: ハッカー倫理と孫子はどのような点が衝突し、どのような点で高め合うか。
@@ -660,6 +660,44 @@
 - 論点: 「単一の Markdown」の原則、インスタンスの境界(責任範囲)、片方の改訂が比較に及ぼす影響。
 - 次の行動: 五輪書を取り込んでから、実際に比較して決める。
 
+# /decision-support/internal-tensions
+- status: 原文=verified / 整理=derived
+- 目的: 十三篇の中で、一見ぶつかる句を、片方に寄せず一覧する。使うときは、どちらの条件の句かを見分ける。
+- 一覧:
+  1. 速さ vs 慎重さ: 「兵之情主速」(九地第十一)/「廟算」で得算を数える(始計第一)。
+  2. 速さ vs 補給: 「兵貴勝，不貴久」(作戰第二)/「舉軍而爭利，則不及」(軍爭第七)。
+  3. 徹底 vs 限定: 「兵貴勝，不貴久」/「窮寇勿迫」(軍爭第七)。
+  4. 動 vs 静: 「侵掠如火」/「不動如山」(軍爭第七)。
+  5. 揃える vs 隠す(味方内): 「所以一民之耳目也」(軍爭第七)/「能愚士卒之耳目，使之無知」(九地第十一)。
+  6. 勝は知れるが作れない vs 作れる: 「勝可知，而不可為」(軍形第四)/虛實第六の異文(→ `/open-questions/textual-variants`)。
+  7. 現場に委ねる vs 統一する: 「君命有所不受」(九變第八)/「勇者不得獨進，怯者不得獨退」(軍爭第七)。
+  8. 死地に置く vs 追い詰めるな: 「陷之死地然後生」(九地第十一)/「窮寇勿迫」(軍爭第七)。
+- 解釈(derived): 孫子は、一貫した単一の規則集ではなく、**場面ごとの条件つきの助言**として読むのが自然。どれか1つの句だけを取って結論に使うことを避ける(→ `surface-and-essence` の基準3)。
+- 限界: 上の一覧が網羅的かは、確かめていない。
+
+# /acceptance-tests/run-2026-10-27
+- status: 暫定(AI が自分で作った宇宙に対して解いた。**第三者による盲検の実行ではない**)
+- 方法: このファイルの内容だけを根拠に答える。足りないときは、足りないと答える。
+- 結果の概要:
+  - q01 partial: 長期化の費用(`cost-of-prolonged-action`)、資源の取り込み(因糧於敵、勝敵而益強)、衝突を後に回す(`win-without-fighting`)、補給(`speed-and-sustainment`)、利害の両面(`weighing-benefit-and-harm`)。**関心を収益にする方法は、答えを持たない(出典の限界)。**
+  - q02 境界=pass / 内容=fail: 範囲外と断った。
+  - q03 partial: 同欲、利、信、共通の危機(`alignment-and-incentive`、`cohesion-and-mutual-support`)。**対等な主体の自発的連携は、出典の限界。**
+  - q04 partial: 試して探る(策作形角)と、長期化の費用は示せる。誠実さは孫子の主題でないと断った。
+  - q05 partial: 現場の判断と統一の使い分け(`delegation-and-center`、`five-conditions-of-victory`、`cohesion-and-mutual-support`)。価値の比較は答えを持たない。
+  - q06 境界=pass / 内容=partial: 利に合うかどうかで動く、という derived のみ。
+  - q07 境界=pass / 内容=fail: 範囲外かつ volatile と断った。
+  - q08 pass: 条件(利得危・怒らない)、限定(窮寇勿迫)、緊張(`internal-tensions` の3、8)。
+  - q09 partial: 隠すことの費用は原文にない。味方に隠すと一民之耳目の揃えと衝突しうる(`internal-tensions` の5)、知らない費用は大きい(用間)。
+  - q10 pass: 正と奇の相生、令素行、戰勝不復。
+  - q11 境界=pass / 内容=partial: 衢地の定義と対処、爭地・交地の見方(`nine-terrains`)。対象の実態は範囲外。
+  - q12 pass: 地を知ることは勝ちの条件・将の務め。必要だが十分でない。同字異義を断った。
+  - q13〜q16、q18: 各テストの result を参照。
+  - q17、q19: 仮の比較(recalled)。partial が上限。
+- この実行で分かったこと(仮説):
+  1. **「宇宙が薄い」と「出典が答えを持たない」は別の欠けである。** q01・q03・q05 の欠けは、孫子を増やしても埋まらない(出典の限界)。取り込みを増やせば埋まる欠け(取り込み不足)とは、区別して記録すべき。→ `/inventory/findings-for-the-format`
+  2. 孫子の内部に、一見矛盾する句が複数ある。一覧にして残した(`internal-tensions`)。
+  3. 自分で作った宇宙を自分で解くのは、偏りがある。別の主体による盲検の実行が要る。
+
 # /inventory/sources
 - 取り込み済み: wikisource-sunzi-7906064(十三篇。「答話」は一部のみ参照)
 - 一部取り込み: なし
@@ -667,7 +705,7 @@
 
 # /inventory/backlog
 - 受け入れテスト: q01〜q19(結果は暫定。最終採点は人が行う。q11〜q19 は運用中に人が追加した問い。q13〜q19 は、人の指示により、宇宙の拡充を先に進めるため未実行)
-- 自律的に進められる次の行動: (1) ウィキソースの履歴・議論ページから底本を調べる、(2) 「十一家注孫子」の本文と照合して異同を記録する、(3) 受け入れテストを実際にエージェントに解かせ、答えを記録する
+- 自律的に進められる次の行動: (1) ウィキソースの履歴・議論ページから底本を調べる、(2) 「十一家注孫子」の本文と照合して異同を記録する、(3) 受け入れテストを、宇宙を作った主体とは別のエージェントに、このファイルだけを渡して解かせ(盲検)、答えを記録する(自己採点の実行は run-2026-10-27 で済み)
 - 人の判断を要する項目: 五輪書の取り込み方(→ /open-questions/gorin-no-sho-text)、ハッカー倫理(CCC 版)の利用可否(→ /open-questions/hacker-ethic-text)、ライセンス(→ /open-questions/license)、q02・q06・q07 の境界テストの書き方、受け入れテストの最終採点、日本語解釈の確認
 - 変わりやすいオブジェクト: なし(固定した版のみ参照)。ただし q02・q07 の内容側は、範囲外のため扱わない。
 - 統合の候補: /decision-support/alignment-and-incentive と /decision-support/delegation-and-center の重なり(九地の「同舟」「攜手若使一人」)
@@ -680,3 +718,5 @@
 - 引用の検証: 記憶による引用は誤りうる。固定した版に照らす規則が要る。
 - 版の固定: 取得した版(oldid)と取得日を `/sources/` に残すことで、再現できる。
 - 規範の緊張: 一見矛盾する規範を、片方に寄せず並べて残す書き方が要る。
+- 欠けの種類: テストの missing を、**取り込み不足**(出典にあるが宇宙に入れていない)と、**出典の限界**(出典自体が答えを持たない)に分けて書く。前者は拡充で埋まり、後者は別の出典か、範囲外の宣言で扱う。(run-2026-10-27 で発見)
+- 実行者の独立性: 宇宙を作った主体が自分でテストを解くと偏る。実行者(誰が、何を見て答えたか)を結果に記録し、盲検の実行を別に行う。
