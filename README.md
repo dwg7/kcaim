@@ -4,7 +4,7 @@
 
 ひとつの Markdown に収めて持ち歩き、使うほどに深まります。
 
-*Knowledge, made with AI and seasoned over time.*
+*Knowledge that people and AI brew together, seasoned over time.*
 
 > miso — Markdown, Iterated with AI, Seasoned Over time.
 
