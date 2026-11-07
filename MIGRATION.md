@@ -42,11 +42,11 @@ kcaim への言及が見つかったリポジトリは、下の表のとおり�
 
 | # | 対象 | 現在 | 移行後(案) | 担当 | 時期 | 備考 |
 |---|---|---|---|---|---|---|
-| 1 | GitHub リポジトリ | `dwg7/kcaim` | `dwg7/miso` | この作業(kcaim セッション) | 段階6 | `dwg7/miso` は未使用(404 を確認)。旧 URL は自動で転送される(下記) |
-| 2 | リポジトリの説明文 | 「エンタープライズCopilotが持ち歩く業務宇宙 Markdown ファイルの概念」 | 「人とAIが、時間をかけて醸す知識。」 | この作業 | 段階5〜6(低リスク。単独で先に可) | topics は現在なし |
+| 1 | GitHub リポジトリ | `dwg7/kcaim` | `dwg7/miso` | この作業(kcaim セッション) | **実施済み(2026-11-07)** | hfu の承認を得て改名。転送の確認は、下の「実施の記録」 |
+| 2 | リポジトリの説明文 | 「エンタープライズCopilotが持ち歩く業務宇宙 Markdown ファイルの概念」 | 「人とAIが、時間をかけて醸す知識。(旧称 kcaim)」 | この作業 | **実施済み(2026-11-07)** | topics も、新旧の語で設定(miso、kcaim、kcai、markdown、knowledge、ai-agents) |
 | 3 | 例のファイル名 | `examples/kcaim-sonshi.md`、`kcaim-bird-yezo.md` | `miso-sonshi.md`、`miso-bird-yezo.md` | この作業 | 段階6 | 本文中の自己参照も同時に置き換える |
 | 4 | 例のファイル名(他の担当が作成) | `examples/kcaim-scala.md` | `miso-scala.md` | **要確認**(作成者) | 段階6 | 私が作ったものではない。作成者の了承を得る |
-| 5 | 起動指示の一行プロンプト | 「添付の kcaim があなたの作業文脈です。…」 | 「添付の miso があなたの作業文脈です。…」 | この作業 | 段階5(先に可) | `examples/agent-contract-template.md`、`examples/kcaim-sonshi.md`。利用者が実際に打つ文なので、名前を合わせたほうが自然 |
+| 5 | 起動指示の一行プロンプト | 「添付の kcaim があなたの作業文脈です。…」 | 「添付の miso があなたの作業文脈です。…」 | この作業 | **実施済み(2026-11-07)** | `examples/agent-contract-template.md`、`examples/kcaim-sonshi.md`。利用者が実際に打つ文なので、名前を合わせたほうが自然 |
 | 6 | `dwg7/kcaim-geo` | リポジトリ名、`AGENTS.md`、`package.json`(+lock)、`README.md`、`DECISIONS.md`、`scripts/check_kcaim.py` | `dwg7/miso-geo`、`scripts/check_miso.py`、各文書の名称 | kcaim-geo のセッション | 各自の判断(段階6のあと) | 2026-11-07 に実測。`package.json` の名前の変更は、依存の確認が要る |
 | 7 | `hfu/universe` | ディレクトリ `kcaim/`(3つのインスタンス)、front matter のキー `kcaim_format`、`README.md`、`EXTERNAL.md`、`CATALOG.md`、`AGENTS.md`、`DECISIONS.md`、`scripts/build_catalog.py`、`scripts/check_universe.py` | `miso/`、`miso_format`(移行期間は**両方を受理**) | universe のセッション | 各自の判断 | 検査器がキーの値を見ず、有無だけを見るため、移行は比較的軽い |
 | 8 | `dwg7/kcai-survey-training`(private) | `scripts/kcai_to_kcaim/`(変換の仕組み。`sections/*.md`、`BRIEF.md`、`core.py`、`build.py`)、`scripts/kcaim_check.py`、`scripts/kcaim_roundtrip_check.py`、`README.md`、`DECISIONS.md`、`TODO.md` | `kcai_to_miso/`、`miso_check.py` など | 当該リポジトリのセッション(**未起動**) | 各自の判断 | **最も参照が多い**。kcai の踏み跡から、単一ファイルのインスタンスを生成する仕組みがある。生成物(契約文など)に名前が入る。名前を変えるなら、生成物の再生成が要る |
@@ -68,7 +68,20 @@ kcaim への言及が見つかったリポジトリは、下の表のとおり�
 - 転送が切れる条件: 旧名(`kcaim`)で、新しいリポジトリを作る、または別のリポジトリを旧名へ移す。**旧名は、再利用しない。**
 - 現状では、Webhook、Actions、Pages がないため、転送以外に壊れるものは、ほとんどない。
 
-## 順序(段階6の案)
+## 実施の記録(2026-11-07。hfu の承認のもと、この作業が実施)
+
+- **リポジトリを `dwg7/kcaim` から `dwg7/miso` に改名した。**説明文は「人とAIが、時間をかけて醸す知識。(旧称 kcaim)」。topics は、miso、kcaim、kcai、markdown、knowledge、ai-agents。
+- **転送の確認(改名の直後)**:
+  - `git ls-remote https://github.com/dwg7/kcaim HEAD`: 通った(新名と同じコミット `02a348b`)。
+  - 旧 URL の Web ページ(`github.com/dwg7/kcaim`): 200、新名のページへ転送。
+  - 旧名の blob URL(`…/dwg7/kcaim/blob/main/examples/kcaim-sonshi.md`): 200、新名の同じパスへ転送(ファイル名を変えていないので、リンクは切れない)。
+  - 旧名の raw URL(`raw.githubusercontent.com/dwg7/kcaim/main/README.md`): 200。
+  - 旧 Issue の API(`repos/dwg7/kcaim/issues/1`): 新名の Issue #1 へ転送。
+  - **旧 Issue の Web URL(`github.com/dwg7/kcaim/issues/1`)は、改名の直後の未認証アクセスで 404 だった。**新名の URL(`github.com/dwg7/miso/issues/1`)は 200。**時間をおいて再確認する**(転送の反映の遅れか、Issue ページの仕様かは、未確認)。
+- **ローカルの `origin`**: `git@github.com:dwg7/miso` に更新した(元の SSH 形式のまま、名前だけを変えた)。fetch は通った。
+- **ファイル名は変えていない**(新陳代謝の方針)。`examples/kcaim-*.md` は、そのまま。
+
+## 順序(段階6の案。新陳代謝の方針により、同日の一斉の切り替えは行わない)
 
 1. 各担当に照会し、**反対や懸念がない**ことを確かめる(下の「照会」)。
 2. この移行表を、hfu が承認する。

@@ -4,7 +4,7 @@
 
 **呼び名について。**呼び名は miso とし、旧称は kcaim(KCAIM)とする。本文は、呼び名の miso に改めた。旧称の KCAIM は、冒頭、改訂履歴、他のリポジトリとの関係の説明に残す。ファイル名(`kcaim-*.md`)、キー名(`kcaim_format` など)、スクリプト名は、当面そのまま変えない。名前と言葉の手引きは `BRAND.md` にある。
 
-本書は [dwg7/kcaim#1](https://github.com/dwg7/kcaim/issues/1) に対応する概念文書である。イシューは英語で書かれているが、本書は日本語で書く(このリポジトリの既存の README が日本語であり、オーナーの指示による)。本書の位置づけは**草稿**で、運用で得た観察に基づいて改訂する(§3)。
+本書は [dwg7/miso#1](https://github.com/dwg7/miso/issues/1)(旧 dwg7/kcaim#1)に対応する概念文書である。イシューは英語で書かれているが、本書は日本語で書く(このリポジトリの既存の README が日本語であり、オーナーの指示による)。本書の位置づけは**草稿**で、運用で得た観察に基づいて改訂する(§3)。
 
 **版の識別。** 本書の版は、改訂履歴(末尾)の日付と、リポジトリのコミットで識別する。インスタンスは、どの版の本書に基づくかを `/system-record/` に `concept-version: <日付またはコミット>` として宣言できる(§5.3)。本書の写しをインスタンス内に持つ場合も、写しの元の版を書く。写しは時間とともにずれるためである。
 
@@ -480,11 +480,12 @@ miso は、[dwg7/kcai](https://github.com/dwg7/kcai) の考え方を、エンタ
 - 2026-11-04: 実際のインスタンスから得たフィードバックを反映。§4.1(チャット型とコードエージェント型)、§1(運用型と探索・理解型)、§2.4(境界・観察者の位置・単位・持ち主の判断)、§4(インスタンスの範囲)、§5(例示と最小の中核、見出しブロック)、§5.1(中核+ローカル別名+対応表、`verified` の限定、`untested`)、§5.3(チェッカーの最小仕様)、§6(質問と品質基準を混ぜない)、§7.1〜7.3(踏み跡の種類、取り込みの関門、更新の種類と追加ゲート)、§8、§10、§12。反映の根拠は、`kcaim-actual-finland` v0.34.0(MS Copilot で作成)の通読と、kcaim-geo・universe の各セッションからの回答(いずれも自己報告で、本書の筆者は未検証)。照会の記録は別途保管している。
 
 - 2026-11-07: 呼び名を miso とし、旧称を kcaim(KCAIM)とした。冒頭に呼び名の節を足した。本文・ファイル名・キー名は、当面そのまま(段階的に改める)。README に呼び名を導入し、`BRAND.md`(草稿)を追加した。
+- 2026-11-07(3): リポジトリを `dwg7/kcaim` から `dwg7/miso` に改名した(旧 URL は転送される。実施の記録は `MIGRATION.md`)。移行は、遡らず、新しいものから塗り替える方針(新陳代謝。既存の名前は変えず、ツールは新旧を両方受理し、新しく作るものは新名を使う)。
 - 2026-11-07(2): 本文の KCAIM を miso に改め、「miso という名前」の節を足した。本書を渡されたエージェントが、miso とは何かを読み取れるようにするため。旧称の KCAIM は、冒頭、改訂履歴、他のリポジトリとの関係の説明に残す。
 
 ## 出典
 
-- [dwg7/kcaim#1](https://github.com/dwg7/kcaim/issues/1): 本書の依頼元(KCAIM の作業定義)
+- [dwg7/miso#1](https://github.com/dwg7/miso/issues/1)(旧 dwg7/kcaim#1): 本書の依頼元(KCAIM の作業定義)
 - [dwg7/kcai](https://github.com/dwg7/kcai): README、`PRINCIPLES.md`、`AGENTS.md`、`docs/knowledge-format.md`、`docs/unsaid.md`(2026-10-27 に参照)
 - [Ubuntu Wiki: Repositories](https://wiki.ubuntu.com/Repositories): `main`/`restricted`/`universe`/`multiverse` の説明(2026-10-27 に参照)
 - [FreeBSD Handbook: Ports](https://docs.freebsd.org/en/books/handbook/ports/): 基本システムと Ports/パッケージの区別(2026-10-27 に参照)
