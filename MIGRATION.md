@@ -77,7 +77,7 @@ kcaim への言及が見つかったリポジトリは、下の表のとおり�
 | 宛先 | 状態 | 回答の要点 |
 |---|---|---|
 | bvmap-koicha(`dwg7/bvmap-koicha`) | 回答あり | **該当なし。**リポジトリ内(コード、README、CLAUDE.md、DECISIONS.md、docs/、style/、build/ ほか)とコミットメッセージを検索し、kcaim / KCAIM / kcai への言及・依存は 0 件。miso という語もない。変えるものも、影響もない。**反対・懸念なし。**時期は、kcaim 側の都合でよい。(参考: こちらは名前を濃茶の比喩で統一しており、miso の発酵食の比喩と混ざらないよう、文書では茶に統一する方針。内部の規則で、反対ではない) |
-| snow-hokkaido | 送信済み。回答待ち | |
+| snow-hokkaido(`dwg7/snow-hokkaido`) | 回答あり | **該当なし。**main、作業ブランチ、日次運用の実行用チェックアウトの追跡ファイル全体(コード、docs、Justfile、scripts、テスト、設定)を、kcaim・kcai で検索し(大文字小文字は区別しない)、言及・依存はない(データ類 ledger/publish/logs は対象外で、公開リポジトリに含まれない)。変えるものも、影響もない。**反対・懸念なし。**時期の制約もない |
 | cafebabe | 回答あり | **該当なし。**追跡ファイル全体(PROJECTS.md、CLAUDE.md、patterns/、DECISIONS.md を含む)を、kcaim・kcai・miso の語で検索し、0 件。MD運用のパターンも kcaim を前提にしていない。変えるものはない。**反対・懸念なし。**時期の制約もない。**依頼: 段階6の切り替えが済んだら、一言知らせてほしい**(kcai 系のリポジトリを PROJECTS.md に登録するとき、切り替え後の名前で書くため) |
 | kcaim-geo | セッション停止中。未送信 | 起こしていただければ、同じ照会を送る |
 | universe | セッション停止中。未送信 | 同上 |
